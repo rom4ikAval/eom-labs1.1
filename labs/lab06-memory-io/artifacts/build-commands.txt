@@ -1,0 +1,16 @@
+gcc -std=c11 -D_POSIX_C_SOURCE=200809L -Wall -Wextra -O0 /workspaces/eom-labs1.1/labs/lab06-memory-io/memory_layout.c -o /tmp/eom-lab06-640w8bap/memory_layout
+gcc -std=c11 -D_POSIX_C_SOURCE=200809L -Wall -Wextra -O0 /workspaces/eom-labs1.1/labs/lab06-memory-io/memory_maps.c -o /tmp/eom-lab06-640w8bap/memory_maps
+gcc -std=c11 -D_POSIX_C_SOURCE=200809L -Wall -Wextra -O0 /workspaces/eom-labs1.1/labs/lab06-memory-io/page_size.c -o /tmp/eom-lab06-640w8bap/page_size
+gcc -std=c11 -D_POSIX_C_SOURCE=200809L -Wall -Wextra -O0 /workspaces/eom-labs1.1/labs/lab06-memory-io/heap_growth.c -o /tmp/eom-lab06-640w8bap/heap_growth
+gcc -std=c11 -D_POSIX_C_SOURCE=200809L -Wall -Wextra -O0 /workspaces/eom-labs1.1/labs/lab06-memory-io/invalid_memory.c -o /tmp/eom-lab06-640w8bap/invalid_memory
+gcc -std=c11 -D_POSIX_C_SOURCE=200809L -Wall -Wextra -O0 /workspaces/eom-labs1.1/labs/lab06-memory-io/standard_fds.c -o /tmp/eom-lab06-640w8bap/standard_fds
+gcc -std=c11 -D_POSIX_C_SOURCE=200809L -Wall -Wextra -O0 /workspaces/eom-labs1.1/labs/lab06-memory-io/fd_observer.c -o /tmp/eom-lab06-640w8bap/fd_observer
+gcc -std=c11 -D_POSIX_C_SOURCE=200809L -Wall -Wextra -O0 /workspaces/eom-labs1.1/labs/lab06-memory-io/open_file.c -o /tmp/eom-lab06-640w8bap/open_file
+gcc -std=c11 -D_POSIX_C_SOURCE=200809L -Wall -Wextra -O0 /workspaces/eom-labs1.1/labs/lab06-memory-io/write_file.c -o /tmp/eom-lab06-640w8bap/write_file
+gcc -std=c11 -D_POSIX_C_SOURCE=200809L -Wall -Wextra -O0 /workspaces/eom-labs1.1/labs/lab06-memory-io/read_file.c -o /tmp/eom-lab06-640w8bap/read_file
+gcc -std=c11 -D_POSIX_C_SOURCE=200809L -Wall -Wextra -O0 /workspaces/eom-labs1.1/labs/lab06-memory-io/file_offset.c -o /tmp/eom-lab06-640w8bap/file_offset
+gcc -std=c11 -D_POSIX_C_SOURCE=200809L -Wall -Wextra -O0 /workspaces/eom-labs1.1/labs/lab06-memory-io/file_offset_seek.c -o /tmp/eom-lab06-640w8bap/file_offset_seek
+gcc -std=c11 -D_POSIX_C_SOURCE=200809L -Wall -Wextra -O0 /workspaces/eom-labs1.1/labs/lab06-memory-io/streams.c -o /tmp/eom-lab06-640w8bap/streams
+gcc -std=c11 -D_POSIX_C_SOURCE=200809L -Wall -Wextra -O0 /workspaces/eom-labs1.1/labs/lab06-memory-io/buffering.c -o /tmp/eom-lab06-640w8bap/buffering
+gcc -std=c11 -D_POSIX_C_SOURCE=200809L -Wall -Wextra -O0 /workspaces/eom-labs1.1/labs/lab06-memory-io/buffering_flush.c -o /tmp/eom-lab06-640w8bap/buffering_flush
+gcc -std=c11 -D_POSIX_C_SOURCE=200809L -Wall -Wextra -O0 /workspaces/eom-labs1.1/labs/lab06-memory-io/file_copy.c -o /tmp/eom-lab06-640w8bap/file_copy

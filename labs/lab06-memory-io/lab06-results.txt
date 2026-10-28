@@ -1,0 +1,253 @@
+
+========== Build and tools ==========
+gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0
+strace -- version 6.8
+Compiling memory_layout.c
+Compiling memory_maps.c
+Compiling page_size.c
+Compiling heap_growth.c
+Compiling invalid_memory.c
+Compiling standard_fds.c
+Compiling fd_observer.c
+Compiling open_file.c
+Compiling write_file.c
+Compiling read_file.c
+Compiling file_offset.c
+Compiling file_offset_seek.c
+Compiling streams.c
+Compiling buffering.c
+Compiling buffering_flush.c
+Compiling file_copy.c
+
+========== memory_layout: three runs ==========
+Run 1
+function: 0x6157be4261c9
+global_initialized: 0x6157be429010
+global_uninitialized: 0x6157be42901c
+static: 0x6157be429014
+heap: 0x6157c93312a0
+stack: 0x7ffe0753e0ac
+Run 2
+function: 0x626f711731c9
+global_initialized: 0x626f71176010
+global_uninitialized: 0x626f7117601c
+static: 0x626f71176014
+heap: 0x626fad1ba2a0
+stack: 0x7ffdef20429c
+Run 3
+function: 0x55c5b84781c9
+global_initialized: 0x55c5b847b010
+global_uninitialized: 0x55c5b847b01c
+static: 0x55c5b847b014
+heap: 0x55c5bffef2a0
+stack: 0x7ffc5e591bec
+
+========== page size and page/offset ==========
+Page size: 4096 bytes
+4096
+Heap address=0x6157c93312a0 decimal=107029665616544
+Page size=4096 page number=26130289457 offset=672
+
+========== memory_maps and address matching ==========
+PID: 7731
+main: 0x55f230cdd2b7
+global: 0x55f230ce0010
+heap: 0x55f2352822a0
+stack: 0x7fff2cce05e8
+READY
+55f230cdc000-55f230cdd000 r--p 00000000 08:21 1703962                    /tmp/eom-lab06-640w8bap/memory_maps
+55f230cdd000-55f230cde000 r-xp 00001000 08:21 1703962                    /tmp/eom-lab06-640w8bap/memory_maps
+55f230cde000-55f230cdf000 r--p 00002000 08:21 1703962                    /tmp/eom-lab06-640w8bap/memory_maps
+55f230cdf000-55f230ce0000 r--p 00002000 08:21 1703962                    /tmp/eom-lab06-640w8bap/memory_maps
+55f230ce0000-55f230ce1000 rw-p 00003000 08:21 1703962                    /tmp/eom-lab06-640w8bap/memory_maps
+55f235282000-55f2352a3000 rw-p 00000000 00:00 0                          [heap]
+760007d01000-760007d04000 rw-p 00000000 00:00 0 
+760007d04000-760007d2c000 r--p 00000000 00:2d 1311608                    /usr/lib/x86_64-linux-gnu/libc.so.6
+760007d2c000-760007eb4000 r-xp 00028000 00:2d 1311608                    /usr/lib/x86_64-linux-gnu/libc.so.6
+760007eb4000-760007f03000 r--p 001b0000 00:2d 1311608                    /usr/lib/x86_64-linux-gnu/libc.so.6
+760007f03000-760007f07000 r--p 001fe000 00:2d 1311608                    /usr/lib/x86_64-linux-gnu/libc.so.6
+760007f07000-760007f09000 rw-p 00202000 00:2d 1311608                    /usr/lib/x86_64-linux-gnu/libc.so.6
+760007f09000-760007f16000 rw-p 00000000 00:00 0 
+760007f1d000-760007f1f000 rw-p 00000000 00:00 0 
+760007f1f000-760007f20000 r--p 00000000 00:2d 1311588                    /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+760007f20000-760007f4b000 r-xp 00001000 00:2d 1311588                    /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+760007f4b000-760007f55000 r--p 0002c000 00:2d 1311588                    /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+760007f55000-760007f57000 r--p 00036000 00:2d 1311588                    /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+760007f57000-760007f59000 rw-p 00038000 00:2d 1311588                    /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+7fff2ccc1000-7fff2cce3000 rw-p 00000000 00:00 0                          [stack]
+7fff2cd20000-7fff2cd24000 r--p 00000000 00:00 0                          [vvar]
+7fff2cd24000-7fff2cd26000 r-xp 00000000 00:00 0                          [vdso]
+ffffffffff600000-ffffffffff601000 --xp 00000000 00:00 0                  [vsyscall]
+
+MATCH main 0x55f230cdd2b7: 55f230cdd000-55f230cde000 r-xp 00001000 08:21 1703962                    /tmp/eom-lab06-640w8bap/memory_maps
+MATCH global 0x55f230ce0010: 55f230ce0000-55f230ce1000 rw-p 00003000 08:21 1703962                    /tmp/eom-lab06-640w8bap/memory_maps
+MATCH heap 0x55f2352822a0: 55f235282000-55f2352a3000 rw-p 00000000 00:00 0                          [heap]
+MATCH stack 0x7fff2cce05e8: 7fff2ccc1000-7fff2cce3000 rw-p 00000000 00:00 0                          [stack]
+
+========== heap_growth: VmSize/VmRSS before and after touch ==========
+PID: 7732
+Allocated: 104857600 bytes
+Address: 0x7dbe60af7010
+Page size: 4096
+BEFORE_TOUCH: press Enter
+BEFORE
+VmSize:	  105088 kB
+VmRSS:	    1776 kB
+RssAnon:	     116 kB
+VmData:	  102628 kB
+AFTER_TOUCH: press Enter
+AFTER
+VmSize:	  105088 kB
+VmRSS:	  104176 kB
+RssAnon:	  102516 kB
+VmData:	  102628 kB
+
+========== invalid_memory: intentional fault ==========
+About to access invalid memory
+Direct return code: -11 (negative = signal in Python)
+About to access invalid memory
+strace return code: -11
+mprotect(0x7bbf0995b000, 8192, PROT_READ) = 0
+prlimit64(0, RLIMIT_STACK, NULL, {rlim_cur=8192*1024, rlim_max=RLIM64_INFINITY}) = 0
+munmap(0x7bbf0991c000, 26379)           = 0
+fstat(1, {st_mode=S_IFIFO|0600, st_size=0, ...}) = 0
+getrandom("\x0b\x60\xa5\x45\x66\x30\x77\xcd", 8, GRND_NONBLOCK) = 8
+brk(NULL)                               = 0x645bb4ecb000
+brk(0x645bb4eec000)                     = 0x645bb4eec000
+write(1, "About to access invalid memory\n", 31) = 31
+--- SIGSEGV {si_signo=SIGSEGV, si_code=SEGV_MAPERR, si_addr=NULL} ---
++++ killed by SIGSEGV (core dumped) +++
+
+========== standard descriptors ==========
+STDIN=0
+STDOUT=1
+STDERR=2
+Observer stdin/stdout are pipes used by this runner; stderr is inherited.
+
+========== fd_observer: /proc/PID/fd ==========
+PID: 7740
+READY
+0 -> pipe:[136569]
+1 -> pipe:[136570]
+2 -> pipe:[135224]
+
+
+========== open_file: /proc/PID/fd ==========
+PID: 7741
+Opened file descriptor: 3
+READY
+0 -> pipe:[136577]
+1 -> pipe:[136578]
+2 -> pipe:[135224]
+3 -> /tmp/eom-lab06-640w8bap/example.txt
+
+
+========== write_file ==========
+Requested: 19 bytes
+Written in total: 19 bytes
+output.txt: b'Hello from write()\n'
+
+========== read_file ==========
+Computer Systems
+Operating Systems
+
+========== file_offset ==========
+Read 1: [Compu], bytes=5, offset=5
+Read 2: [ter S], bytes=5, offset=10
+
+========== file_offset_seek ==========
+Read 1: [Compu], bytes=5, offset=5
+Read 2: [Compu], bytes=5, offset=5
+
+========== read_file strace ==========
+Computer Systems
+Operating Systems
+openat(AT_FDCWD, "/etc/ld.so.cache", O_RDONLY|O_CLOEXEC) = 3
+close(3)                                = 0
+openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libc.so.6", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\2\1\1\3\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\220\243\2\0\0\0\0\0"..., 832) = 832
+close(3)                                = 0
+openat(AT_FDCWD, "input.txt", O_RDONLY) = 3
+read(3, "Computer Systems", 16)         = 16
+write(1, "Computer Systems", 16)        = 16
+read(3, "\nOperating Syste", 16)        = 16
+write(1, "\nOperating Syste", 16)       = 16
+read(3, "ms\n", 16)                     = 3
+write(1, "ms\n", 3)                     = 3
+read(3, "", 16)                         = 0
+close(3)                                = 0
++++ exited with 0 +++
+
+
+========== streams without redirection ==========
+Normal output
+Error output
+
+========== streams > normal.txt: stderr stays separate ==========
+normal.txt: b'Normal output\n'
+stderr: b'Error output\n'
+
+========== buffering: writes observed with redirected stdout ==========
+DABCwrite(1, "D", 1)                        = 1
+write(1, "ABC", 3)                      = 3
++++ exited with 0 +++
+
+
+========== buffering_flush: writes observed with redirected stdout ==========
+ABCDwrite(1, "ABC", 3)                      = 3
+write(1, "D", 1)                        = 1
++++ exited with 0 +++
+
+
+========== file_copy: text, binary and empty file ==========
+cmp source.txt destination.txt: exit=0, bytes=40
+cmp file_copy binary-copy: exit=0, bytes=16536
+cmp empty.txt empty-copy: exit=0, bytes=0
+
+========== file_copy: error checks ==========
+Arguments: []
+Usage: /tmp/eom-lab06-640w8bap/file_copy <source> <destination>
+exit= 1
+Arguments: ['missing.txt', 'unused.txt']
+open source: No such file or directory
+exit= 1
+Arguments: ['source.txt', 'missing-dir/out.txt']
+open destination: No such file or directory
+exit= 1
+Arguments: ['.', 'read-error.txt']
+read: Is a directory
+exit= 1
+Arguments: ['source.txt', '/dev/full']
+write: No space left on device
+exit= 1
+Arguments: ['source.txt', 'source.txt']
+Source and destination are the same file
+exit= 1
+Arguments: ['source.txt', 'same-inode.txt']
+Source and destination are the same file
+exit= 1
+Same-file/hard-link check: source preserved
+
+========== file_copy strace ==========
+openat(AT_FDCWD, "/etc/ld.so.cache", O_RDONLY|O_CLOEXEC) = 3
+fstat(3, {st_mode=S_IFREG|0644, st_size=26379, ...}) = 0
+close(3)                                = 0
+openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libc.so.6", O_RDONLY|O_CLOEXEC) = 3
+read(3, "\177ELF\2\1\1\3\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\220\243\2\0\0\0\0\0"..., 832) = 832
+fstat(3, {st_mode=S_IFREG|0755, st_size=2125328, ...}) = 0
+close(3)                                = 0
+openat(AT_FDCWD, "source.txt", O_RDONLY) = 3
+openat(AT_FDCWD, "destination.txt", O_WRONLY|O_CREAT, 0644) = 4
+fstat(3, {st_mode=S_IFREG|0646, st_size=40, ...}) = 0
+fstat(4, {st_mode=S_IFREG|0644, st_size=40, ...}) = 0
+ftruncate(4, 0)                         = 0
+read(3, "Operating Systems\nComputer Archi"..., 4096) = 40
+write(4, "Operating Systems\nComputer Archi"..., 40) = 40
+read(3, "", 4096)                       = 0
+close(4)                                = 0
+close(3)                                = 0
++++ exited with 0 +++
+
+Final cmp: exit=0
+
+========== ALL EXPERIMENTS FINISHED ==========

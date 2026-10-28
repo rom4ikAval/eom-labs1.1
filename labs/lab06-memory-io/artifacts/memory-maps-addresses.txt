@@ -1,0 +1,6 @@
+PID: 7731
+main: 0x55f230cdd2b7
+global: 0x55f230ce0010
+heap: 0x55f2352822a0
+stack: 0x7fff2cce05e8
+READY

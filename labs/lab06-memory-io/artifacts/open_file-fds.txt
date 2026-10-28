@@ -1,0 +1,4 @@
+0 -> pipe:[136577]
+1 -> pipe:[136578]
+2 -> pipe:[135224]
+3 -> /tmp/eom-lab06-640w8bap/example.txt

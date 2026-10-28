@@ -1,0 +1,23 @@
+55f230cdc000-55f230cdd000 r--p 00000000 08:21 1703962                    /tmp/eom-lab06-640w8bap/memory_maps
+55f230cdd000-55f230cde000 r-xp 00001000 08:21 1703962                    /tmp/eom-lab06-640w8bap/memory_maps
+55f230cde000-55f230cdf000 r--p 00002000 08:21 1703962                    /tmp/eom-lab06-640w8bap/memory_maps
+55f230cdf000-55f230ce0000 r--p 00002000 08:21 1703962                    /tmp/eom-lab06-640w8bap/memory_maps
+55f230ce0000-55f230ce1000 rw-p 00003000 08:21 1703962                    /tmp/eom-lab06-640w8bap/memory_maps
+55f235282000-55f2352a3000 rw-p 00000000 00:00 0                          [heap]
+760007d01000-760007d04000 rw-p 00000000 00:00 0 
+760007d04000-760007d2c000 r--p 00000000 00:2d 1311608                    /usr/lib/x86_64-linux-gnu/libc.so.6
+760007d2c000-760007eb4000 r-xp 00028000 00:2d 1311608                    /usr/lib/x86_64-linux-gnu/libc.so.6
+760007eb4000-760007f03000 r--p 001b0000 00:2d 1311608                    /usr/lib/x86_64-linux-gnu/libc.so.6
+760007f03000-760007f07000 r--p 001fe000 00:2d 1311608                    /usr/lib/x86_64-linux-gnu/libc.so.6
+760007f07000-760007f09000 rw-p 00202000 00:2d 1311608                    /usr/lib/x86_64-linux-gnu/libc.so.6
+760007f09000-760007f16000 rw-p 00000000 00:00 0 
+760007f1d000-760007f1f000 rw-p 00000000 00:00 0 
+760007f1f000-760007f20000 r--p 00000000 00:2d 1311588                    /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+760007f20000-760007f4b000 r-xp 00001000 00:2d 1311588                    /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+760007f4b000-760007f55000 r--p 0002c000 00:2d 1311588                    /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+760007f55000-760007f57000 r--p 00036000 00:2d 1311588                    /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+760007f57000-760007f59000 rw-p 00038000 00:2d 1311588                    /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+7fff2ccc1000-7fff2cce3000 rw-p 00000000 00:00 0                          [stack]
+7fff2cd20000-7fff2cd24000 r--p 00000000 00:00 0                          [vvar]
+7fff2cd24000-7fff2cd26000 r-xp 00000000 00:00 0                          [vdso]
+ffffffffff600000-ffffffffff601000 --xp 00000000 00:00 0                  [vsyscall]

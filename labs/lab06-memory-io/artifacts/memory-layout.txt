@@ -1,0 +1,20 @@
+function: 0x6157be4261c9
+global_initialized: 0x6157be429010
+global_uninitialized: 0x6157be42901c
+static: 0x6157be429014
+heap: 0x6157c93312a0
+stack: 0x7ffe0753e0ac
+
+function: 0x626f711731c9
+global_initialized: 0x626f71176010
+global_uninitialized: 0x626f7117601c
+static: 0x626f71176014
+heap: 0x626fad1ba2a0
+stack: 0x7ffdef20429c
+
+function: 0x55c5b84781c9
+global_initialized: 0x55c5b847b010
+global_uninitialized: 0x55c5b847b01c
+static: 0x55c5b847b014
+heap: 0x55c5bffef2a0
+stack: 0x7ffc5e591bec
