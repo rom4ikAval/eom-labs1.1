@@ -1,0 +1,32 @@
+
+/tmp/eom-lab05.62zwsL/race:     file format elf64-x86-64
+
+
+Disassembly of section .init:
+
+Disassembly of section .plt:
+
+Disassembly of section .plt.got:
+
+Disassembly of section .plt.sec:
+
+Disassembly of section .text:
+
+0000000000001257 <increment>:
+    1257:	f3 0f 1e fa          	endbr64
+    125b:	55                   	push   %rbp
+    125c:	48 89 e5             	mov    %rsp,%rbp
+    125f:	48 89 7d e8          	mov    %rdi,-0x18(%rbp)
+    1263:	c7 45 fc 00 00 00 00 	movl   $0x0,-0x4(%rbp)
+    126a:	eb 16                	jmp    1282 <increment+0x2b>
+    126c:	48 8b 05 bd 2d 00 00 	mov    0x2dbd(%rip),%rax        # 4030 <counter>
+    1273:	48 83 c0 01          	add    $0x1,%rax
+    1277:	48 89 05 b2 2d 00 00 	mov    %rax,0x2db2(%rip)        # 4030 <counter>
+    127e:	83 45 fc 01          	addl   $0x1,-0x4(%rbp)
+    1282:	81 7d fc 3f 42 0f 00 	cmpl   $0xf423f,-0x4(%rbp)
+    1289:	7e e1                	jle    126c <increment+0x15>
+    128b:	b8 00 00 00 00       	mov    $0x0,%eax
+    1290:	5d                   	pop    %rbp
+    1291:	c3                   	ret
+
+Disassembly of section .fini:

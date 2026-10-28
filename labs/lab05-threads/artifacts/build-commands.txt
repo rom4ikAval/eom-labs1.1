@@ -1,0 +1,45 @@
+gcc -std=c11 -Wall -Wextra -O0 -pthread first_thread.c -o /tmp/eom-lab05.62zwsL/first_thread
+gcc -std=c11 -Wall -Wextra -O0 -pthread -S first_thread.c -o artifacts/first_thread.s
+objdump -d /tmp/eom-lab05.62zwsL/first_thread > artifacts/first_thread.objdump.txt
+gcc -std=c11 -Wall -Wextra -O0 -pthread multiple_threads.c -o /tmp/eom-lab05.62zwsL/multiple_threads
+gcc -std=c11 -Wall -Wextra -O0 -pthread -S multiple_threads.c -o artifacts/multiple_threads.s
+objdump -d /tmp/eom-lab05.62zwsL/multiple_threads > artifacts/multiple_threads.objdump.txt
+gcc -std=c11 -Wall -Wextra -O0 -pthread shared_data.c -o /tmp/eom-lab05.62zwsL/shared_data
+gcc -std=c11 -Wall -Wextra -O0 -pthread -S shared_data.c -o artifacts/shared_data.s
+objdump -d /tmp/eom-lab05.62zwsL/shared_data > artifacts/shared_data.objdump.txt
+gcc -std=c11 -Wall -Wextra -O0 -pthread thread_stacks.c -o /tmp/eom-lab05.62zwsL/thread_stacks
+gcc -std=c11 -Wall -Wextra -O0 -pthread -S thread_stacks.c -o artifacts/thread_stacks.s
+objdump -d /tmp/eom-lab05.62zwsL/thread_stacks > artifacts/thread_stacks.objdump.txt
+gcc -std=c11 -Wall -Wextra -O0 -pthread race.c -o /tmp/eom-lab05.62zwsL/race
+gcc -std=c11 -Wall -Wextra -O0 -pthread -S race.c -o artifacts/race.s
+objdump -d /tmp/eom-lab05.62zwsL/race > artifacts/race.objdump.txt
+gcc -std=c11 -Wall -Wextra -O0 -pthread mutex_counter.c -o /tmp/eom-lab05.62zwsL/mutex_counter
+gcc -std=c11 -Wall -Wextra -O0 -pthread -S mutex_counter.c -o artifacts/mutex_counter.s
+objdump -d /tmp/eom-lab05.62zwsL/mutex_counter > artifacts/mutex_counter.objdump.txt
+gcc -std=c11 -Wall -Wextra -O0 -pthread race_four.c -o /tmp/eom-lab05.62zwsL/race_four
+gcc -std=c11 -Wall -Wextra -O0 -pthread -S race_four.c -o artifacts/race_four.s
+objdump -d /tmp/eom-lab05.62zwsL/race_four > artifacts/race_four.objdump.txt
+gcc -std=c11 -Wall -Wextra -O0 -pthread mutex_four.c -o /tmp/eom-lab05.62zwsL/mutex_four
+gcc -std=c11 -Wall -Wextra -O0 -pthread -S mutex_four.c -o artifacts/mutex_four.s
+objdump -d /tmp/eom-lab05.62zwsL/mutex_four > artifacts/mutex_four.objdump.txt
+gcc -std=c11 -Wall -Wextra -O0 -pthread coarse_mutex.c -o /tmp/eom-lab05.62zwsL/coarse_mutex
+gcc -std=c11 -Wall -Wextra -O0 -pthread -S coarse_mutex.c -o artifacts/coarse_mutex.s
+objdump -d /tmp/eom-lab05.62zwsL/coarse_mutex > artifacts/coarse_mutex.objdump.txt
+gcc -std=c11 -Wall -Wextra -O0 -pthread shared_heap.c -o /tmp/eom-lab05.62zwsL/shared_heap
+gcc -std=c11 -Wall -Wextra -O0 -pthread -S shared_heap.c -o artifacts/shared_heap.s
+objdump -d /tmp/eom-lab05.62zwsL/shared_heap > artifacts/shared_heap.objdump.txt
+gcc -std=c11 -Wall -Wextra -O0 -pthread thread_result.c -o /tmp/eom-lab05.62zwsL/thread_result
+gcc -std=c11 -Wall -Wextra -O0 -pthread -S thread_result.c -o artifacts/thread_result.s
+objdump -d /tmp/eom-lab05.62zwsL/thread_result > artifacts/thread_result.objdump.txt
+gcc -std=c11 -Wall -Wextra -O0 -pthread deadlock.c -o /tmp/eom-lab05.62zwsL/deadlock
+gcc -std=c11 -Wall -Wextra -O0 -pthread -S deadlock.c -o artifacts/deadlock.s
+objdump -d /tmp/eom-lab05.62zwsL/deadlock > artifacts/deadlock.objdump.txt
+gcc -std=c11 -Wall -Wextra -O0 -pthread deadlock_fixed.c -o /tmp/eom-lab05.62zwsL/deadlock_fixed
+gcc -std=c11 -Wall -Wextra -O0 -pthread -S deadlock_fixed.c -o artifacts/deadlock_fixed.s
+objdump -d /tmp/eom-lab05.62zwsL/deadlock_fixed > artifacts/deadlock_fixed.objdump.txt
+gcc -std=c11 -Wall -Wextra -O0 -pthread parallel_sum.c -o /tmp/eom-lab05.62zwsL/parallel_sum
+gcc -std=c11 -Wall -Wextra -O0 -pthread -S parallel_sum.c -o artifacts/parallel_sum.s
+objdump -d /tmp/eom-lab05.62zwsL/parallel_sum > artifacts/parallel_sum.objdump.txt
+gcc -std=c11 -Wall -Wextra -O0 -pthread sequential_sum.c -o /tmp/eom-lab05.62zwsL/sequential_sum
+gcc -std=c11 -Wall -Wextra -O0 -pthread -S sequential_sum.c -o artifacts/sequential_sum.s
+objdump -d /tmp/eom-lab05.62zwsL/sequential_sum > artifacts/sequential_sum.objdump.txt

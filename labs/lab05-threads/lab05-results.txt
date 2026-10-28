@@ -1,0 +1,353 @@
+
+========== Build and preserve Assembly / full disassembly ==========
+Compiling first_thread.c
+Compiling multiple_threads.c
+Compiling shared_data.c
+Compiling thread_stacks.c
+Compiling race.c
+Compiling mutex_counter.c
+Compiling race_four.c
+Compiling mutex_four.c
+Compiling coarse_mutex.c
+Compiling shared_heap.c
+Compiling thread_result.c
+Compiling deadlock.c
+Compiling deadlock_fixed.c
+Compiling parallel_sum.c
+Compiling sequential_sum.c
+
+========== first_thread ==========
+Run 1
+Main: creating thread
+Hello from worker thread!
+Main: worker finished
+
+========== multiple_threads ==========
+Run 1
+Thread 1 is running
+Thread 3 is running
+Thread 4 is running
+Thread 2 is running
+Run 2
+Thread 1 is running
+Thread 2 is running
+Thread 3 is running
+Thread 4 is running
+Run 3
+Thread 1 is running
+Thread 2 is running
+Thread 3 is running
+Thread 4 is running
+Run 4
+Thread 2 is running
+Thread 1 is running
+Thread 4 is running
+Thread 3 is running
+Run 5
+Thread 1 is running
+Thread 2 is running
+Thread 3 is running
+Thread 4 is running
+
+========== shared_data ==========
+Run 1
+Thread 2: value=200, address=0x5ce7c0f8402c
+Thread 1: value=100, address=0x5ce7c0f8402c
+Main: value=100, address=0x5ce7c0f8402c
+Run 2
+Thread 1: value=100, address=0x5a917261302c
+Thread 2: value=200, address=0x5a917261302c
+Main: value=200, address=0x5a917261302c
+Run 3
+Thread 2: value=200, address=0x63217313a02c
+Thread 1: value=100, address=0x63217313a02c
+Main: value=100, address=0x63217313a02c
+Run 4
+Thread 1: value=100, address=0x56a97ac3f02c
+Thread 2: value=200, address=0x56a97ac3f02c
+Main: value=200, address=0x56a97ac3f02c
+Run 5
+Thread 1: value=100, address=0x5affbdfbd02c
+Thread 2: value=200, address=0x5affbdfbd02c
+Main: value=200, address=0x5affbdfbd02c
+
+========== thread_stacks ==========
+Run 1
+Thread 1: local=10, address=0x70810905eeb0
+Thread 2: local=20, address=0x70810885deb0
+Run 2
+Thread 1: local=10, address=0x77ac2f0feeb0
+Thread 2: local=20, address=0x77ac2e8fdeb0
+Run 3
+Thread 1: local=10, address=0x70be137c4eb0
+Thread 2: local=20, address=0x70be12fc3eb0
+
+========== race ==========
+Run 1
+Threads=2 Iterations=1000000 Expected=2000000 Actual=1580061
+Run 2
+Threads=2 Iterations=1000000 Expected=2000000 Actual=2000000
+Run 3
+Threads=2 Iterations=1000000 Expected=2000000 Actual=1523573
+Run 4
+Threads=2 Iterations=1000000 Expected=2000000 Actual=1049881
+Run 5
+Threads=2 Iterations=1000000 Expected=2000000 Actual=2000000
+
+========== Machine instructions for increment ==========
+
+/tmp/eom-lab05.62zwsL/race:     file format elf64-x86-64
+
+
+Disassembly of section .init:
+
+Disassembly of section .plt:
+
+Disassembly of section .plt.got:
+
+Disassembly of section .plt.sec:
+
+Disassembly of section .text:
+
+0000000000001257 <increment>:
+    1257:	f3 0f 1e fa          	endbr64
+    125b:	55                   	push   %rbp
+    125c:	48 89 e5             	mov    %rsp,%rbp
+    125f:	48 89 7d e8          	mov    %rdi,-0x18(%rbp)
+    1263:	c7 45 fc 00 00 00 00 	movl   $0x0,-0x4(%rbp)
+    126a:	eb 16                	jmp    1282 <increment+0x2b>
+    126c:	48 8b 05 bd 2d 00 00 	mov    0x2dbd(%rip),%rax        # 4030 <counter>
+    1273:	48 83 c0 01          	add    $0x1,%rax
+    1277:	48 89 05 b2 2d 00 00 	mov    %rax,0x2db2(%rip)        # 4030 <counter>
+    127e:	83 45 fc 01          	addl   $0x1,-0x4(%rbp)
+    1282:	81 7d fc 3f 42 0f 00 	cmpl   $0xf423f,-0x4(%rbp)
+    1289:	7e e1                	jle    126c <increment+0x15>
+    128b:	b8 00 00 00 00       	mov    $0x0,%eax
+    1290:	5d                   	pop    %rbp
+    1291:	c3                   	ret
+
+Disassembly of section .fini:
+
+========== mutex_counter ==========
+Run 1
+Threads=2 Iterations=1000000 Expected=2000000 Actual=2000000
+Run 2
+Threads=2 Iterations=1000000 Expected=2000000 Actual=2000000
+Run 3
+Threads=2 Iterations=1000000 Expected=2000000 Actual=2000000
+Run 4
+Threads=2 Iterations=1000000 Expected=2000000 Actual=2000000
+Run 5
+Threads=2 Iterations=1000000 Expected=2000000 Actual=2000000
+
+========== race_four ==========
+Run 1
+Threads=4 Iterations=500000 Expected=2000000 Actual=1076841
+Run 2
+Threads=4 Iterations=500000 Expected=2000000 Actual=1162992
+Run 3
+Threads=4 Iterations=500000 Expected=2000000 Actual=923439
+Run 4
+Threads=4 Iterations=500000 Expected=2000000 Actual=1536212
+Run 5
+Threads=4 Iterations=500000 Expected=2000000 Actual=1340159
+
+========== mutex_four ==========
+Run 1
+Threads=4 Iterations=500000 Expected=2000000 Actual=2000000
+Run 2
+Threads=4 Iterations=500000 Expected=2000000 Actual=2000000
+Run 3
+Threads=4 Iterations=500000 Expected=2000000 Actual=2000000
+Run 4
+Threads=4 Iterations=500000 Expected=2000000 Actual=2000000
+Run 5
+Threads=4 Iterations=500000 Expected=2000000 Actual=2000000
+
+========== coarse_mutex ==========
+Run 1
+Threads=2 Iterations=1000000 Expected=2000000 Actual=2000000
+Run 2
+Threads=2 Iterations=1000000 Expected=2000000 Actual=2000000
+Run 3
+Threads=2 Iterations=1000000 Expected=2000000 Actual=2000000
+Run 4
+Threads=2 Iterations=1000000 Expected=2000000 Actual=2000000
+Run 5
+Threads=2 Iterations=1000000 Expected=2000000 Actual=2000000
+
+========== shared_heap ==========
+Run 1
+Main before: value=100, heap address=0x5e3f3d3a72a0
+Worker: value=110, heap address=0x5e3f3d3a72a0
+Main after: value=110, heap address=0x5e3f3d3a72a0
+
+========== thread_result ==========
+Run 1
+Input=12 Result=144
+
+========== Deadlock: observation limited to 5 seconds ==========
+Thread 1: locking mutex1
+Thread 1: acquired mutex1
+Thread 2: locking mutex2
+Thread 2: acquired mutex2
+Thread 1: locking mutex2
+Thread 2: locking mutex1
+Exit=124
+Timeout: inspect acquired/waiting mutex messages above
+
+========== Fixed deadlock ==========
+Thread 1: locking mutex1
+Thread 1: acquired mutex1
+Thread 2: locking mutex1
+Thread 1: locking mutex2
+Thread 1: critical section
+Thread 2: acquired mutex1
+Thread 2: locking mutex2
+Thread 2: critical section
+Main: both workers finished
+
+========== parallel_sum ==========
+Run 1
+Thread 1: [1..250000] sum=31250125000
+Thread 2: [250001..500000] sum=93750125000
+Thread 3: [500001..750000] sum=156250125000
+Thread 4: [750001..1000000] sum=218750125000
+Parallel result: 500000500000
+Expected result: 500000500000
+Correct: YES
+Run 2
+Thread 1: [1..250000] sum=31250125000
+Thread 2: [250001..500000] sum=93750125000
+Thread 3: [500001..750000] sum=156250125000
+Thread 4: [750001..1000000] sum=218750125000
+Parallel result: 500000500000
+Expected result: 500000500000
+Correct: YES
+Run 3
+Thread 1: [1..250000] sum=31250125000
+Thread 2: [250001..500000] sum=93750125000
+Thread 3: [500001..750000] sum=156250125000
+Thread 4: [750001..1000000] sum=218750125000
+Parallel result: 500000500000
+Expected result: 500000500000
+Correct: YES
+
+========== sequential_sum ==========
+Run 1
+Sequential result: 500000500000
+Expected result: 500000500000
+Correct: YES
+Run 2
+Sequential result: 500000500000
+Expected result: 500000500000
+Correct: YES
+Run 3
+Sequential result: 500000500000
+Expected result: 500000500000
+Correct: YES
+
+========== Timings in seconds: three runs each ==========
+
+========== time race ==========
+Run 1
+Threads=2 Iterations=1000000 Expected=2000000 Actual=1829514
+real=0.010 user=0.012 sys=0.000
+Run 2
+Threads=2 Iterations=1000000 Expected=2000000 Actual=1909433
+real=0.008 user=0.009 sys=0.000
+Run 3
+Threads=2 Iterations=1000000 Expected=2000000 Actual=2000000
+real=0.006 user=0.005 sys=0.001
+
+========== time mutex_counter ==========
+Run 1
+Threads=2 Iterations=1000000 Expected=2000000 Actual=2000000
+real=0.085 user=0.064 sys=0.045
+Run 2
+Threads=2 Iterations=1000000 Expected=2000000 Actual=2000000
+real=0.089 user=0.095 sys=0.047
+Run 3
+Threads=2 Iterations=1000000 Expected=2000000 Actual=2000000
+real=0.097 user=0.084 sys=0.081
+
+========== time race_four ==========
+Run 1
+Threads=4 Iterations=500000 Expected=2000000 Actual=1135213
+real=0.011 user=0.017 sys=0.001
+Run 2
+Threads=4 Iterations=500000 Expected=2000000 Actual=725952
+real=0.014 user=0.019 sys=0.001
+Run 3
+Threads=4 Iterations=500000 Expected=2000000 Actual=1001178
+real=0.011 user=0.013 sys=0.001
+
+========== time mutex_four ==========
+Run 1
+Threads=4 Iterations=500000 Expected=2000000 Actual=2000000
+real=0.103 user=0.090 sys=0.088
+Run 2
+Threads=4 Iterations=500000 Expected=2000000 Actual=2000000
+real=0.114 user=0.119 sys=0.091
+Run 3
+Threads=4 Iterations=500000 Expected=2000000 Actual=2000000
+real=0.113 user=0.107 sys=0.100
+
+========== time coarse_mutex ==========
+Run 1
+Threads=2 Iterations=1000000 Expected=2000000 Actual=2000000
+real=0.006 user=0.005 sys=0.001
+Run 2
+Threads=2 Iterations=1000000 Expected=2000000 Actual=2000000
+real=0.007 user=0.006 sys=0.000
+Run 3
+Threads=2 Iterations=1000000 Expected=2000000 Actual=2000000
+real=0.006 user=0.005 sys=0.001
+
+========== time sequential_sum ==========
+Run 1
+Sequential result: 500000500000
+Expected result: 500000500000
+Correct: YES
+real=0.004 user=0.003 sys=0.001
+Run 2
+Sequential result: 500000500000
+Expected result: 500000500000
+Correct: YES
+real=0.003 user=0.003 sys=0.000
+Run 3
+Sequential result: 500000500000
+Expected result: 500000500000
+Correct: YES
+real=0.003 user=0.003 sys=0.001
+
+========== time parallel_sum ==========
+Run 1
+Thread 1: [1..250000] sum=31250125000
+Thread 2: [250001..500000] sum=93750125000
+Thread 3: [500001..750000] sum=156250125000
+Thread 4: [750001..1000000] sum=218750125000
+Parallel result: 500000500000
+Expected result: 500000500000
+Correct: YES
+real=0.003 user=0.003 sys=0.001
+Run 2
+Thread 1: [1..250000] sum=31250125000
+Thread 2: [250001..500000] sum=93750125000
+Thread 3: [500001..750000] sum=156250125000
+Thread 4: [750001..1000000] sum=218750125000
+Parallel result: 500000500000
+Expected result: 500000500000
+Correct: YES
+real=0.004 user=0.004 sys=0.000
+Run 3
+Thread 1: [1..250000] sum=31250125000
+Thread 2: [250001..500000] sum=93750125000
+Thread 3: [500001..750000] sum=156250125000
+Thread 4: [750001..1000000] sum=218750125000
+Parallel result: 500000500000
+Expected result: 500000500000
+Correct: YES
+real=0.003 user=0.003 sys=0.001
+
+========== ALL EXPERIMENTS FINISHED ==========
