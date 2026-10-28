@@ -1,0 +1,298 @@
+
+========== Build ==========
+Compiling pipe_basic.c
+Compiling pipe_processes.c
+Compiling pipe_no_close.c
+Compiling dup2_output.c
+Compiling redirect_exec.c
+Compiling pipeline.c
+Compiling signal_int.c
+Compiling signal_parent_child.c
+Compiling mini_shell.c
+
+========== pipe_basic ==========
+Read end: 3
+Write end: 4
+Received: Hello through pipe!
+Next read (EOF): 0
+
+========== pipe_processes ==========
+Before fork: read=3 write=4
+Child received: Message from parent
+Child: EOF
+Parent: child status=0
+
+========== pipe_no_close ==========
+Before fork: read=3 write=4
+Child received: Message from parent
+No EOF: child still waiting; stopping and reaping child
+Child signal=15
+
+========== pipe_no_close --fixed ==========
+Before fork: read=3 write=4
+Child received: Message from parent
+Child: EOF
+Parent: child status=0
+
+========== pipe_processes strace -f ==========
+Before fork: read=3 write=4
+Child received: Message from parent
+Child: EOF
+Parent: child status=0
+18232 close(3)                          = 0
+18232 read(3, "\177ELF\2\1\1\3\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\220\243\2\0\0\0\0\0"..., 832) = 832
+18232 close(3)                          = 0
+18232 pipe2([3, 4], 0)                  = 0
+18232 write(1, "Before fork: read=3 write=4\n", 28) = 28
+18232 clone(child_stack=NULL, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLD, child_tidptr=0x7d4b3e7f7a10) = 18233
+18232 close(3)                          = 0
+18233 close(4 <unfinished ...>
+18232 write(4, "Message from parent\n", 20) = 20
+18233 <... close resumed>)              = 0
+18232 close(4 <unfinished ...>
+18233 write(1, "Child received: ", 16 <unfinished ...>
+18232 <... close resumed>)              = 0
+18233 <... write resumed>)              = 16
+18232 wait4(18233,  <unfinished ...>
+18233 read(3, "Message from parent\n", 128) = 20
+18233 write(1, "Message from parent\n", 20) = 20
+18233 read(3, "", 128)                  = 0
+18233 write(1, "Child: EOF\n", 11)      = 11
+18233 close(3)                          = 0
+18233 +++ exited with 0 +++
+18232 <... wait4 resumed>[{WIFEXITED(s) && WEXITSTATUS(s) == 0}], 0, NULL) = 18233
+18232 --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=18233, si_uid=1000, si_status=0, si_utime=0, si_stime=0} ---
+18232 write(1, "Parent: child status=0\n", 23) = 23
+18232 +++ exited with 0 +++
+
+
+========== dup2_output ==========
+redirected.txt: 'This goes to the file\n'
+
+========== redirect_exec ==========
+total 184
+-rwxr-xrwx 1 codespace codespace 16320 Oct 28 21:22 dup2_output
+-rw-r--r-- 1 codespace codespace     0 Oct 28 21:22 ls-output.txt
+-rwxr-xrwx 1 codespace codespace 21568 Oct 28 21:22 mini_shell
+-rwxr-xrwx 1 codespace codespace 16448 Oct 28 21:22 pipe_basic
+-rwxr-xrwx 1 codespace codespace 16904 Oct 28 21:22 pipe_no_close
+-rwxr-xrwx 1 codespace codespace 16720 Oct 28 21:22 pipe_processes
+-rwxr-xrwx 1 codespace codespace 16856 Oct 28 21:22 pipeline
+-rwxr-xrwx 1 codespace codespace 16864 Oct 28 21:22 redirect_exec
+-rw-r--r-- 1 codespace codespace    22 Oct 28 21:22 redirected.txt
+-rwxr-xrwx 1 codespace codespace 16560 Oct 28 21:22 signal_int
+-rwxr-xrwx 1 codespace codespace 17048 Oct 28 21:22 signal_parent_child
+
+
+========== pipeline: ls -l | wc -l ==========
+12
+Expected lines=12; Actual=12; Match=True
+
+========== SIGINT handler, then SIGKILL ==========
+READY PID=18241
+
+SIGINT received
+Alive after SIGINT: True
+After SIGKILL returncode= -9
+
+========== signal_parent_child  ==========
+Child ready; handler=default
+Parent: sending SIGTERM to 18243
+Parent: child status=143
+Child signal=15
+
+========== signal_parent_child --handled ==========
+Child ready; handler=custom
+Parent: sending SIGTERM to 18252
+Child handler: SIGTERM received
+Child: normal exit after handler
+Parent: child status=0
+
+========== mini-shell: commands, cd, redirection, pipeline ==========
+Commands:
+pwd
+ls
+ls -l
+echo Hello Systems
+cd /tmp
+pwd
+cd /tmp/eom-lab07-gv4s_iza
+echo test > test.txt
+cat test.txt
+ls -l | wc -l
+cat input.txt | grep hello
+seq 100000 | wc -l
+yes | head -n 1
+exit
+
+/tmp/eom-lab07-gv4s_iza
+dup2_output
+input.txt
+ls-output.txt
+mini_shell
+pipe_basic
+pipe_no_close
+pipe_processes
+pipeline
+redirect_exec
+redirected.txt
+signal_int
+signal_parent_child
+total 192
+-rwxr-xrwx 1 codespace codespace 16320 Oct 28 21:22 dup2_output
+-rw-r--rw- 1 codespace codespace    26 Oct 28 21:22 input.txt
+-rw-r--r-- 1 codespace codespace   728 Oct 28 21:22 ls-output.txt
+-rwxr-xrwx 1 codespace codespace 21568 Oct 28 21:22 mini_shell
+-rwxr-xrwx 1 codespace codespace 16448 Oct 28 21:22 pipe_basic
+-rwxr-xrwx 1 codespace codespace 16904 Oct 28 21:22 pipe_no_close
+-rwxr-xrwx 1 codespace codespace 16720 Oct 28 21:22 pipe_processes
+-rwxr-xrwx 1 codespace codespace 16856 Oct 28 21:22 pipeline
+-rwxr-xrwx 1 codespace codespace 16864 Oct 28 21:22 redirect_exec
+-rw-r--r-- 1 codespace codespace    22 Oct 28 21:22 redirected.txt
+-rwxr-xrwx 1 codespace codespace 16560 Oct 28 21:22 signal_int
+-rwxr-xrwx 1 codespace codespace 17048 Oct 28 21:22 signal_parent_child
+Hello Systems
+/tmp
+test
+14
+hello one
+hello two
+100000
+y
+Child signal=13
+Redirection content: test; large pipeline: 100000 lines
+
+========== mini-shell: errors must not terminate shell ==========
+still-running
+execvp: No such file or directory
+chdir: No such file or directory
+open: No such file or directory
+Syntax error: one pipe and optional final > file
+Syntax error: one pipe and optional final > file
+Syntax error: one pipe and optional final > file
+Syntax error: one pipe and optional final > file
+Usage: cd directory
+Input too long
+
+========== mini-shell: real Ctrl+C character through pseudoterminal ==========
+myshell> sleep 30
+^CChild signal=2
+myshell> echo still-running
+still-running
+myshell> 
+PASS: sleep interrupted; shell survived and executed next command
+
+========== mini-shell strace -f ==========
+14
+18307 execve("/tmp/eom-lab07-gv4s_iza/mini_shell", ["/tmp/eom-lab07-gv4s_iza/mini_she"...], 0x7ffe6c837468 /* 93 vars */) = 0
+18307 read(0, "echo hello > output.txt\nls | wc "..., 4096) = 40
+18307 clone(child_stack=NULL, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLD, child_tidptr=0x76cb4cc8ea10) = 18308
+18307 wait4(18308,  <unfinished ...>
+18308 openat(AT_FDCWD, "output.txt", O_WRONLY|O_CREAT|O_TRUNC, 0644) = 3
+18308 dup2(3, 1)                        = 1
+18308 execve("/vscode/bin/linux-x64/2c33b50b16c472efe58357d1d2a8a5414bc23fbf/bin/remote-cli/echo", ["echo", "hello"], 0x7ffce943e088 /* 93 vars */) = -1 ENOENT (No such file or directory)
+18308 execve("/home/codespace/.local/bin/echo", ["echo", "hello"], 0x7ffce943e088 /* 93 vars */) = -1 ENOENT (No such file or directory)
+18308 execve("/usr/local/rubies/current/bin/echo", ["echo", "hello"], 0x7ffce943e088 /* 93 vars */) = -1 ENOENT (No such file or directory)
+18308 execve("/home/codespace/.dotnet/echo", ["echo", "hello"], 0x7ffce943e088 /* 93 vars */) = -1 ENOENT (No such file or directory)
+18308 execve("/home/codespace/nvm/current/bin/echo", ["echo", "hello"], 0x7ffce943e088 /* 93 vars */) = -1 ENOENT (No such file or directory)
+18308 execve("/home/codespace/.php/current/bin/echo", ["echo", "hello"], 0x7ffce943e088 /* 93 vars */) = -1 ENOENT (No such file or directory)
+18308 execve("/home/codespace/.python/current/bin/echo", ["echo", "hello"], 0x7ffce943e088 /* 93 vars */) = -1 ENOENT (No such file or directory)
+18308 execve("/home/codespace/java/current/bin/echo", ["echo", "hello"], 0x7ffce943e088 /* 93 vars */) = -1 ENOENT (No such file or directory)
+18308 execve("/home/codespace/.ruby/current/bin/echo", ["echo", "hello"], 0x7ffce943e088 /* 93 vars */) = -1 ENOENT (No such file or directory)
+18308 execve("/home/codespace/.local/bin/echo", ["echo", "hello"], 0x7ffce943e088 /* 93 vars */) = -1 ENOENT (No such file or directory)
+18308 execve("/usr/local/python/current/bin/echo", ["echo", "hello"], 0x7ffce943e088 /* 93 vars */) = -1 ENOENT (No such file or directory)
+18308 execve("/usr/local/py-utils/bin/echo", ["echo", "hello"], 0x7ffce943e088 /* 93 vars */) = -1 ENOENT (No such file or directory)
+18308 execve("/usr/local/jupyter/echo", ["echo", "hello"], 0x7ffce943e088 /* 93 vars */) = -1 ENOENT (No such file or directory)
+18308 execve("/usr/local/oryx/echo", ["echo", "hello"], 0x7ffce943e088 /* 93 vars */) = -1 ENOENT (No such file or directory)
+18308 execve("/usr/local/go/bin/echo", ["echo", "hello"], 0x7ffce943e088 /* 93 vars */) = -1 ENOENT (No such file or directory)
+18308 execve("/go/bin/echo", ["echo", "hello"], 0x7ffce943e088 /* 93 vars */) = -1 ENOENT (No such file or directory)
+18308 execve("/usr/local/sdkman/bin/echo", ["echo", "hello"], 0x7ffce943e088 /* 93 vars */) = -1 ENOENT (No such file or directory)
+18308 execve("/usr/local/sdkman/candidates/java/current/bin/echo", ["echo", "hello"], 0x7ffce943e088 /* 93 vars */) = -1 ENOENT (No such file or directory)
+18308 execve("/usr/local/sdkman/candidates/gradle/current/bin/echo", ["echo", "hello"], 0x7ffce943e088 /* 93 vars */) = -1 ENOENT (No such file or directory)
+18308 execve("/usr/local/sdkman/candidates/maven/current/bin/echo", ["echo", "hello"], 0x7ffce943e088 /* 93 vars */) = -1 ENOENT (No such file or directory)
+18308 execve("/usr/local/sdkman/candidates/ant/current/bin/echo", ["echo", "hello"], 0x7ffce943e088 /* 93 vars */) = -1 ENOENT (No such file or directory)
+18308 execve("/usr/local/share/rbenv/shims/echo", ["echo", "hello"], 0x7ffce943e088 /* 93 vars */) = -1 ENOENT (No such file or directory)
+18308 execve("/usr/local/share/rbenv/bin/echo", ["echo", "hello"], 0x7ffce943e088 /* 93 vars */) = -1 ENOENT (No such file or directory)
+18308 execve("/usr/local/rubies/current/bin/echo", ["echo", "hello"], 0x7ffce943e088 /* 93 vars */) = -1 ENOENT (No such file or directory)
+18308 execve("/usr/local/php/current/bin/echo", ["echo", "hello"], 0x7ffce943e088 /* 93 vars */) = -1 ENOENT (No such file or directory)
+18308 execve("/opt/conda/bin/echo", ["echo", "hello"], 0x7ffce943e088 /* 93 vars */) = -1 ENOENT (No such file or directory)
+18308 execve("/usr/local/share/nvm/versions/node/v24.21.0/bin/echo", ["echo", "hello"], 0x7ffce943e088 /* 93 vars */) = -1 ENOENT (No such file or directory)
+18308 execve("/usr/local/hugo/bin/echo", ["echo", "hello"], 0x7ffce943e088 /* 93 vars */) = -1 ENOENT (No such file or directory)
+18308 execve("/usr/local/sbin/echo", ["echo", "hello"], 0x7ffce943e088 /* 93 vars */) = -1 ENOENT (No such file or directory)
+18308 execve("/usr/local/bin/echo", ["echo", "hello"], 0x7ffce943e088 /* 93 vars */) = -1 ENOENT (No such file or directory)
+18308 execve("/usr/sbin/echo", ["echo", "hello"], 0x7ffce943e088 /* 93 vars */) = -1 ENOENT (No such file or directory)
+18308 execve("/usr/bin/echo", ["echo", "hello"], 0x7ffce943e088 /* 93 vars */) = 0
+18307 pipe2([3, 4], 0)                  = 0
+18307 clone(child_stack=NULL, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLD, child_tidptr=0x76cb4cc8ea10) = 18309
+18307 clone(child_stack=NULL, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLD, child_tidptr=0x76cb4cc8ea10) = 18310
+18309 dup2(4, 1 <unfinished ...>
+18307 wait4(18309,  <unfinished ...>
+18310 dup2(3, 0)                        = 0
+18309 execve("/vscode/bin/linux-x64/2c33b50b16c472efe58357d1d2a8a5414bc23fbf/bin/remote-cli/ls", ["ls"], 0x7ffce943e088 /* 93 vars */ <unfinished ...>
+18310 execve("/vscode/bin/linux-x64/2c33b50b16c472efe58357d1d2a8a5414bc23fbf/bin/remote-cli/wc", ["wc", "-l"], 0x7ffce943e088 /* 93 vars */) = -1 ENOENT (No such file or directory)
+18310 execve("/home/codespace/.local/bin/wc", ["wc", "-l"], 0x7ffce943e088 /* 93 vars */) = -1 ENOENT (No such file or directory)
+18309 execve("/home/codespace/.local/bin/ls", ["ls"], 0x7ffce943e088 /* 93 vars */ <unfinished ...>
+18310 execve("/usr/local/rubies/current/bin/wc", ["wc", "-l"], 0x7ffce943e088 /* 93 vars */ <unfinished ...>
+18309 execve("/usr/local/rubies/current/bin/ls", ["ls"], 0x7ffce943e088 /* 93 vars */ <unfinished ...>
+18310 execve("/home/codespace/.dotnet/wc", ["wc", "-l"], 0x7ffce943e088 /* 93 vars */ <unfinished ...>
+18309 execve("/home/codespace/.dotnet/ls", ["ls"], 0x7ffce943e088 /* 93 vars */ <unfinished ...>
+18310 execve("/home/codespace/nvm/current/bin/wc", ["wc", "-l"], 0x7ffce943e088 /* 93 vars */) = -1 ENOENT (No such file or directory)
+18310 execve("/home/codespace/.php/current/bin/wc", ["wc", "-l"], 0x7ffce943e088 /* 93 vars */ <unfinished ...>
+18309 execve("/home/codespace/nvm/current/bin/ls", ["ls"], 0x7ffce943e088 /* 93 vars */ <unfinished ...>
+18310 execve("/home/codespace/.python/current/bin/wc", ["wc", "-l"], 0x7ffce943e088 /* 93 vars */ <unfinished ...>
+18309 execve("/home/codespace/.php/current/bin/ls", ["ls"], 0x7ffce943e088 /* 93 vars */ <unfinished ...>
+18310 execve("/home/codespace/java/current/bin/wc", ["wc", "-l"], 0x7ffce943e088 /* 93 vars */ <unfinished ...>
+18309 execve("/home/codespace/.python/current/bin/ls", ["ls"], 0x7ffce943e088 /* 93 vars */ <unfinished ...>
+18309 execve("/home/codespace/java/current/bin/ls", ["ls"], 0x7ffce943e088 /* 93 vars */ <unfinished ...>
+18310 execve("/home/codespace/.ruby/current/bin/wc", ["wc", "-l"], 0x7ffce943e088 /* 93 vars */) = -1 ENOENT (No such file or directory)
+18309 execve("/home/codespace/.ruby/current/bin/ls", ["ls"], 0x7ffce943e088 /* 93 vars */ <unfinished ...>
+18310 execve("/home/codespace/.local/bin/wc", ["wc", "-l"], 0x7ffce943e088 /* 93 vars */) = -1 ENOENT (No such file or directory)
+18309 execve("/home/codespace/.local/bin/ls", ["ls"], 0x7ffce943e088 /* 93 vars */ <unfinished ...>
+18310 execve("/usr/local/python/current/bin/wc", ["wc", "-l"], 0x7ffce943e088 /* 93 vars */) = -1 ENOENT (No such file or directory)
+18309 execve("/usr/local/python/current/bin/ls", ["ls"], 0x7ffce943e088 /* 93 vars */ <unfinished ...>
+18310 execve("/usr/local/py-utils/bin/wc", ["wc", "-l"], 0x7ffce943e088 /* 93 vars */ <unfinished ...>
+18309 execve("/usr/local/py-utils/bin/ls", ["ls"], 0x7ffce943e088 /* 93 vars */ <unfinished ...>
+18310 execve("/usr/local/jupyter/wc", ["wc", "-l"], 0x7ffce943e088 /* 93 vars */ <unfinished ...>
+18309 execve("/usr/local/jupyter/ls", ["ls"], 0x7ffce943e088 /* 93 vars */ <unfinished ...>
+18310 execve("/usr/local/oryx/wc", ["wc", "-l"], 0x7ffce943e088 /* 93 vars */ <unfinished ...>
+18309 execve("/usr/local/oryx/ls", ["ls"], 0x7ffce943e088 /* 93 vars */ <unfinished ...>
+18310 execve("/usr/local/go/bin/wc", ["wc", "-l"], 0x7ffce943e088 /* 93 vars */ <unfinished ...>
+18309 execve("/usr/local/go/bin/ls", ["ls"], 0x7ffce943e088 /* 93 vars */ <unfinished ...>
+18310 execve("/go/bin/wc", ["wc", "-l"], 0x7ffce943e088 /* 93 vars */) = -1 ENOENT (No such file or directory)
+18309 execve("/go/bin/ls", ["ls"], 0x7ffce943e088 /* 93 vars */ <unfinished ...>
+18310 execve("/usr/local/sdkman/bin/wc", ["wc", "-l"], 0x7ffce943e088 /* 93 vars */ <unfinished ...>
+18309 execve("/usr/local/sdkman/bin/ls", ["ls"], 0x7ffce943e088 /* 93 vars */ <unfinished ...>
+18309 execve("/usr/local/sdkman/candidates/java/current/bin/ls", ["ls"], 0x7ffce943e088 /* 93 vars */ <unfinished ...>
+18310 execve("/usr/local/sdkman/candidates/java/current/bin/wc", ["wc", "-l"], 0x7ffce943e088 /* 93 vars */ <unfinished ...>
+18309 execve("/usr/local/sdkman/candidates/gradle/current/bin/ls", ["ls"], 0x7ffce943e088 /* 93 vars */ <unfinished ...>
+18309 execve("/usr/local/sdkman/candidates/maven/current/bin/ls", ["ls"], 0x7ffce943e088 /* 93 vars */ <unfinished ...>
+18310 execve("/usr/local/sdkman/candidates/gradle/current/bin/wc", ["wc", "-l"], 0x7ffce943e088 /* 93 vars */ <unfinished ...>
+18309 execve("/usr/local/sdkman/candidates/ant/current/bin/ls", ["ls"], 0x7ffce943e088 /* 93 vars */ <unfinished ...>
+18310 execve("/usr/local/sdkman/candidates/maven/current/bin/wc", ["wc", "-l"], 0x7ffce943e088 /* 93 vars */ <unfinished ...>
+18309 execve("/usr/local/share/rbenv/shims/ls", ["ls"], 0x7ffce943e088 /* 93 vars */ <unfinished ...>
+18310 execve("/usr/local/sdkman/candidates/ant/current/bin/wc", ["wc", "-l"], 0x7ffce943e088 /* 93 vars */ <unfinished ...>
+18309 execve("/usr/local/share/rbenv/bin/ls", ["ls"], 0x7ffce943e088 /* 93 vars */ <unfinished ...>
+18310 execve("/usr/local/share/rbenv/shims/wc", ["wc", "-l"], 0x7ffce943e088 /* 93 vars */ <unfinished ...>
+18309 execve("/usr/local/rubies/current/bin/ls", ["ls"], 0x7ffce943e088 /* 93 vars */ <unfinished ...>
+18309 execve("/usr/local/php/current/bin/ls", ["ls"], 0x7ffce943e088 /* 93 vars */ <unfinished ...>
+18310 execve("/usr/local/share/rbenv/bin/wc", ["wc", "-l"], 0x7ffce943e088 /* 93 vars */ <unfinished ...>
+18309 execve("/opt/conda/bin/ls", ["ls"], 0x7ffce943e088 /* 93 vars */ <unfinished ...>
+18310 execve("/usr/local/rubies/current/bin/wc", ["wc", "-l"], 0x7ffce943e088 /* 93 vars */ <unfinished ...>
+18309 execve("/usr/local/share/nvm/versions/node/v24.21.0/bin/ls", ["ls"], 0x7ffce943e088 /* 93 vars */ <unfinished ...>
+18310 execve("/usr/local/php/current/bin/wc", ["wc", "-l"], 0x7ffce943e088 /* 93 vars */ <unfinished ...>
+18309 execve("/usr/local/hugo/bin/ls", ["ls"], 0x7ffce943e088 /* 93 vars */ <unfinished ...>
+18310 execve("/opt/conda/bin/wc", ["wc", "-l"], 0x7ffce943e088 /* 93 vars */ <unfinished ...>
+18309 execve("/usr/local/sbin/ls", ["ls"], 0x7ffce943e088 /* 93 vars */ <unfinished ...>
+18310 execve("/usr/local/share/nvm/versions/node/v24.21.0/bin/wc", ["wc", "-l"], 0x7ffce943e088 /* 93 vars */ <unfinished ...>
+18309 execve("/usr/local/bin/ls", ["ls"], 0x7ffce943e088 /* 93 vars */ <unfinished ...>
+18310 execve("/usr/local/hugo/bin/wc", ["wc", "-l"], 0x7ffce943e088 /* 93 vars */ <unfinished ...>
+18309 execve("/usr/sbin/ls", ["ls"], 0x7ffce943e088 /* 93 vars */ <unfinished ...>
+18310 execve("/usr/local/sbin/wc", ["wc", "-l"], 0x7ffce943e088 /* 93 vars */ <unfinished ...>
+18309 execve("/usr/bin/ls", ["ls"], 0x7ffce943e088 /* 93 vars */ <unfinished ...>
+18310 execve("/usr/local/bin/wc", ["wc", "-l"], 0x7ffce943e088 /* 93 vars */) = -1 ENOENT (No such file or directory)
+18310 execve("/usr/sbin/wc", ["wc", "-l"], 0x7ffce943e088 /* 93 vars */) = -1 ENOENT (No such file or directory)
+18310 execve("/usr/bin/wc", ["wc", "-l"], 0x7ffce943e088 /* 93 vars */) = 0
+18307 wait4(18310,  <unfinished ...>
+Full trace saved: traces/mini-shell.strace
+
+========== ALL EXPERIMENTS FINISHED ==========

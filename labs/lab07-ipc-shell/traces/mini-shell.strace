@@ -1,0 +1,245 @@
+18307 execve("/tmp/eom-lab07-gv4s_iza/mini_shell", ["/tmp/eom-lab07-gv4s_iza/mini_she"...], 0x7ffe6c837468 /* 93 vars */) = 0
+18307 openat(AT_FDCWD, "/etc/ld.so.cache", O_RDONLY|O_CLOEXEC) = 3
+18307 close(3)                          = 0
+18307 openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libc.so.6", O_RDONLY|O_CLOEXEC) = 3
+18307 read(3, "\177ELF\2\1\1\3\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\220\243\2\0\0\0\0\0"..., 832) = 832
+18307 close(3)                          = 0
+18307 read(0, "echo hello > output.txt\nls | wc "..., 4096) = 40
+18307 clone(child_stack=NULL, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLD, child_tidptr=0x76cb4cc8ea10) = 18308
+18307 wait4(18308,  <unfinished ...>
+18308 openat(AT_FDCWD, "output.txt", O_WRONLY|O_CREAT|O_TRUNC, 0644) = 3
+18308 dup2(3, 1)                        = 1
+18308 close(3)                          = 0
+18308 execve("/vscode/bin/linux-x64/2c33b50b16c472efe58357d1d2a8a5414bc23fbf/bin/remote-cli/echo", ["echo", "hello"], 0x7ffce943e088 /* 93 vars */) = -1 ENOENT (No such file or directory)
+18308 execve("/home/codespace/.local/bin/echo", ["echo", "hello"], 0x7ffce943e088 /* 93 vars */) = -1 ENOENT (No such file or directory)
+18308 execve("/usr/local/rubies/current/bin/echo", ["echo", "hello"], 0x7ffce943e088 /* 93 vars */) = -1 ENOENT (No such file or directory)
+18308 execve("/home/codespace/.dotnet/echo", ["echo", "hello"], 0x7ffce943e088 /* 93 vars */) = -1 ENOENT (No such file or directory)
+18308 execve("/home/codespace/nvm/current/bin/echo", ["echo", "hello"], 0x7ffce943e088 /* 93 vars */) = -1 ENOENT (No such file or directory)
+18308 execve("/home/codespace/.php/current/bin/echo", ["echo", "hello"], 0x7ffce943e088 /* 93 vars */) = -1 ENOENT (No such file or directory)
+18308 execve("/home/codespace/.python/current/bin/echo", ["echo", "hello"], 0x7ffce943e088 /* 93 vars */) = -1 ENOENT (No such file or directory)
+18308 execve("/home/codespace/java/current/bin/echo", ["echo", "hello"], 0x7ffce943e088 /* 93 vars */) = -1 ENOENT (No such file or directory)
+18308 execve("/home/codespace/.ruby/current/bin/echo", ["echo", "hello"], 0x7ffce943e088 /* 93 vars */) = -1 ENOENT (No such file or directory)
+18308 execve("/home/codespace/.local/bin/echo", ["echo", "hello"], 0x7ffce943e088 /* 93 vars */) = -1 ENOENT (No such file or directory)
+18308 execve("/usr/local/python/current/bin/echo", ["echo", "hello"], 0x7ffce943e088 /* 93 vars */) = -1 ENOENT (No such file or directory)
+18308 execve("/usr/local/py-utils/bin/echo", ["echo", "hello"], 0x7ffce943e088 /* 93 vars */) = -1 ENOENT (No such file or directory)
+18308 execve("/usr/local/jupyter/echo", ["echo", "hello"], 0x7ffce943e088 /* 93 vars */) = -1 ENOENT (No such file or directory)
+18308 execve("/usr/local/oryx/echo", ["echo", "hello"], 0x7ffce943e088 /* 93 vars */) = -1 ENOENT (No such file or directory)
+18308 execve("/usr/local/go/bin/echo", ["echo", "hello"], 0x7ffce943e088 /* 93 vars */) = -1 ENOENT (No such file or directory)
+18308 execve("/go/bin/echo", ["echo", "hello"], 0x7ffce943e088 /* 93 vars */) = -1 ENOENT (No such file or directory)
+18308 execve("/usr/local/sdkman/bin/echo", ["echo", "hello"], 0x7ffce943e088 /* 93 vars */) = -1 ENOENT (No such file or directory)
+18308 execve("/usr/local/sdkman/candidates/java/current/bin/echo", ["echo", "hello"], 0x7ffce943e088 /* 93 vars */) = -1 ENOENT (No such file or directory)
+18308 execve("/usr/local/sdkman/candidates/gradle/current/bin/echo", ["echo", "hello"], 0x7ffce943e088 /* 93 vars */) = -1 ENOENT (No such file or directory)
+18308 execve("/usr/local/sdkman/candidates/maven/current/bin/echo", ["echo", "hello"], 0x7ffce943e088 /* 93 vars */) = -1 ENOENT (No such file or directory)
+18308 execve("/usr/local/sdkman/candidates/ant/current/bin/echo", ["echo", "hello"], 0x7ffce943e088 /* 93 vars */) = -1 ENOENT (No such file or directory)
+18308 execve("/usr/local/share/rbenv/shims/echo", ["echo", "hello"], 0x7ffce943e088 /* 93 vars */) = -1 ENOENT (No such file or directory)
+18308 execve("/usr/local/share/rbenv/bin/echo", ["echo", "hello"], 0x7ffce943e088 /* 93 vars */) = -1 ENOENT (No such file or directory)
+18308 execve("/usr/local/rubies/current/bin/echo", ["echo", "hello"], 0x7ffce943e088 /* 93 vars */) = -1 ENOENT (No such file or directory)
+18308 execve("/usr/local/php/current/bin/echo", ["echo", "hello"], 0x7ffce943e088 /* 93 vars */) = -1 ENOENT (No such file or directory)
+18308 execve("/opt/conda/bin/echo", ["echo", "hello"], 0x7ffce943e088 /* 93 vars */) = -1 ENOENT (No such file or directory)
+18308 execve("/usr/local/share/nvm/versions/node/v24.21.0/bin/echo", ["echo", "hello"], 0x7ffce943e088 /* 93 vars */) = -1 ENOENT (No such file or directory)
+18308 execve("/usr/local/hugo/bin/echo", ["echo", "hello"], 0x7ffce943e088 /* 93 vars */) = -1 ENOENT (No such file or directory)
+18308 execve("/usr/local/sbin/echo", ["echo", "hello"], 0x7ffce943e088 /* 93 vars */) = -1 ENOENT (No such file or directory)
+18308 execve("/usr/local/bin/echo", ["echo", "hello"], 0x7ffce943e088 /* 93 vars */) = -1 ENOENT (No such file or directory)
+18308 execve("/usr/sbin/echo", ["echo", "hello"], 0x7ffce943e088 /* 93 vars */) = -1 ENOENT (No such file or directory)
+18308 execve("/usr/bin/echo", ["echo", "hello"], 0x7ffce943e088 /* 93 vars */) = 0
+18308 openat(AT_FDCWD, "/etc/ld.so.cache", O_RDONLY|O_CLOEXEC) = 3
+18308 close(3)                          = 0
+18308 openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libc.so.6", O_RDONLY|O_CLOEXEC) = 3
+18308 read(3, "\177ELF\2\1\1\3\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\220\243\2\0\0\0\0\0"..., 832) = 832
+18308 close(3)                          = 0
+18308 write(1, "hello\n", 6)            = 6
+18308 close(1)                          = 0
+18308 close(2)                          = 0
+18308 exit_group(0)                     = ?
+18308 +++ exited with 0 +++
+18307 <... wait4 resumed>[{WIFEXITED(s) && WEXITSTATUS(s) == 0}], 0, NULL) = 18308
+18307 --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=18308, si_uid=1000, si_status=0, si_utime=0, si_stime=0} ---
+18307 pipe2([3, 4], 0)                  = 0
+18307 clone(child_stack=NULL, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLD, child_tidptr=0x76cb4cc8ea10) = 18309
+18307 clone(child_stack=NULL, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLD, child_tidptr=0x76cb4cc8ea10) = 18310
+18307 close(3)                          = 0
+18307 close(4 <unfinished ...>
+18309 dup2(4, 1 <unfinished ...>
+18307 <... close resumed>)              = 0
+18309 <... dup2 resumed>)               = 1
+18307 wait4(18309,  <unfinished ...>
+18309 close(3 <unfinished ...>
+18310 dup2(3, 0)                        = 0
+18309 <... close resumed>)              = 0
+18310 close(3 <unfinished ...>
+18309 close(4 <unfinished ...>
+18310 <... close resumed>)              = 0
+18310 close(4 <unfinished ...>
+18309 <... close resumed>)              = 0
+18310 <... close resumed>)              = 0
+18309 execve("/vscode/bin/linux-x64/2c33b50b16c472efe58357d1d2a8a5414bc23fbf/bin/remote-cli/ls", ["ls"], 0x7ffce943e088 /* 93 vars */ <unfinished ...>
+18310 execve("/vscode/bin/linux-x64/2c33b50b16c472efe58357d1d2a8a5414bc23fbf/bin/remote-cli/wc", ["wc", "-l"], 0x7ffce943e088 /* 93 vars */) = -1 ENOENT (No such file or directory)
+18309 <... execve resumed>)             = -1 ENOENT (No such file or directory)
+18310 execve("/home/codespace/.local/bin/wc", ["wc", "-l"], 0x7ffce943e088 /* 93 vars */) = -1 ENOENT (No such file or directory)
+18309 execve("/home/codespace/.local/bin/ls", ["ls"], 0x7ffce943e088 /* 93 vars */ <unfinished ...>
+18310 execve("/usr/local/rubies/current/bin/wc", ["wc", "-l"], 0x7ffce943e088 /* 93 vars */ <unfinished ...>
+18309 <... execve resumed>)             = -1 ENOENT (No such file or directory)
+18309 execve("/usr/local/rubies/current/bin/ls", ["ls"], 0x7ffce943e088 /* 93 vars */ <unfinished ...>
+18310 <... execve resumed>)             = -1 ENOENT (No such file or directory)
+18310 execve("/home/codespace/.dotnet/wc", ["wc", "-l"], 0x7ffce943e088 /* 93 vars */ <unfinished ...>
+18309 <... execve resumed>)             = -1 ENOENT (No such file or directory)
+18310 <... execve resumed>)             = -1 ENOENT (No such file or directory)
+18309 execve("/home/codespace/.dotnet/ls", ["ls"], 0x7ffce943e088 /* 93 vars */ <unfinished ...>
+18310 execve("/home/codespace/nvm/current/bin/wc", ["wc", "-l"], 0x7ffce943e088 /* 93 vars */) = -1 ENOENT (No such file or directory)
+18309 <... execve resumed>)             = -1 ENOENT (No such file or directory)
+18310 execve("/home/codespace/.php/current/bin/wc", ["wc", "-l"], 0x7ffce943e088 /* 93 vars */ <unfinished ...>
+18309 execve("/home/codespace/nvm/current/bin/ls", ["ls"], 0x7ffce943e088 /* 93 vars */ <unfinished ...>
+18310 <... execve resumed>)             = -1 ENOENT (No such file or directory)
+18309 <... execve resumed>)             = -1 ENOENT (No such file or directory)
+18310 execve("/home/codespace/.python/current/bin/wc", ["wc", "-l"], 0x7ffce943e088 /* 93 vars */ <unfinished ...>
+18309 execve("/home/codespace/.php/current/bin/ls", ["ls"], 0x7ffce943e088 /* 93 vars */ <unfinished ...>
+18310 <... execve resumed>)             = -1 ENOENT (No such file or directory)
+18309 <... execve resumed>)             = -1 ENOENT (No such file or directory)
+18310 execve("/home/codespace/java/current/bin/wc", ["wc", "-l"], 0x7ffce943e088 /* 93 vars */ <unfinished ...>
+18309 execve("/home/codespace/.python/current/bin/ls", ["ls"], 0x7ffce943e088 /* 93 vars */ <unfinished ...>
+18310 <... execve resumed>)             = -1 ENOENT (No such file or directory)
+18309 <... execve resumed>)             = -1 ENOENT (No such file or directory)
+18309 execve("/home/codespace/java/current/bin/ls", ["ls"], 0x7ffce943e088 /* 93 vars */ <unfinished ...>
+18310 execve("/home/codespace/.ruby/current/bin/wc", ["wc", "-l"], 0x7ffce943e088 /* 93 vars */) = -1 ENOENT (No such file or directory)
+18309 <... execve resumed>)             = -1 ENOENT (No such file or directory)
+18309 execve("/home/codespace/.ruby/current/bin/ls", ["ls"], 0x7ffce943e088 /* 93 vars */ <unfinished ...>
+18310 execve("/home/codespace/.local/bin/wc", ["wc", "-l"], 0x7ffce943e088 /* 93 vars */) = -1 ENOENT (No such file or directory)
+18309 <... execve resumed>)             = -1 ENOENT (No such file or directory)
+18309 execve("/home/codespace/.local/bin/ls", ["ls"], 0x7ffce943e088 /* 93 vars */ <unfinished ...>
+18310 execve("/usr/local/python/current/bin/wc", ["wc", "-l"], 0x7ffce943e088 /* 93 vars */) = -1 ENOENT (No such file or directory)
+18309 <... execve resumed>)             = -1 ENOENT (No such file or directory)
+18309 execve("/usr/local/python/current/bin/ls", ["ls"], 0x7ffce943e088 /* 93 vars */ <unfinished ...>
+18310 execve("/usr/local/py-utils/bin/wc", ["wc", "-l"], 0x7ffce943e088 /* 93 vars */ <unfinished ...>
+18309 <... execve resumed>)             = -1 ENOENT (No such file or directory)
+18310 <... execve resumed>)             = -1 ENOENT (No such file or directory)
+18309 execve("/usr/local/py-utils/bin/ls", ["ls"], 0x7ffce943e088 /* 93 vars */ <unfinished ...>
+18310 execve("/usr/local/jupyter/wc", ["wc", "-l"], 0x7ffce943e088 /* 93 vars */ <unfinished ...>
+18309 <... execve resumed>)             = -1 ENOENT (No such file or directory)
+18309 execve("/usr/local/jupyter/ls", ["ls"], 0x7ffce943e088 /* 93 vars */ <unfinished ...>
+18310 <... execve resumed>)             = -1 ENOENT (No such file or directory)
+18310 execve("/usr/local/oryx/wc", ["wc", "-l"], 0x7ffce943e088 /* 93 vars */ <unfinished ...>
+18309 <... execve resumed>)             = -1 ENOENT (No such file or directory)
+18309 execve("/usr/local/oryx/ls", ["ls"], 0x7ffce943e088 /* 93 vars */ <unfinished ...>
+18310 <... execve resumed>)             = -1 ENOENT (No such file or directory)
+18309 <... execve resumed>)             = -1 ENOENT (No such file or directory)
+18310 execve("/usr/local/go/bin/wc", ["wc", "-l"], 0x7ffce943e088 /* 93 vars */ <unfinished ...>
+18309 execve("/usr/local/go/bin/ls", ["ls"], 0x7ffce943e088 /* 93 vars */ <unfinished ...>
+18310 <... execve resumed>)             = -1 ENOENT (No such file or directory)
+18309 <... execve resumed>)             = -1 ENOENT (No such file or directory)
+18310 execve("/go/bin/wc", ["wc", "-l"], 0x7ffce943e088 /* 93 vars */) = -1 ENOENT (No such file or directory)
+18309 execve("/go/bin/ls", ["ls"], 0x7ffce943e088 /* 93 vars */ <unfinished ...>
+18310 execve("/usr/local/sdkman/bin/wc", ["wc", "-l"], 0x7ffce943e088 /* 93 vars */ <unfinished ...>
+18309 <... execve resumed>)             = -1 ENOENT (No such file or directory)
+18309 execve("/usr/local/sdkman/bin/ls", ["ls"], 0x7ffce943e088 /* 93 vars */ <unfinished ...>
+18310 <... execve resumed>)             = -1 ENOENT (No such file or directory)
+18309 <... execve resumed>)             = -1 ENOENT (No such file or directory)
+18309 execve("/usr/local/sdkman/candidates/java/current/bin/ls", ["ls"], 0x7ffce943e088 /* 93 vars */ <unfinished ...>
+18310 execve("/usr/local/sdkman/candidates/java/current/bin/wc", ["wc", "-l"], 0x7ffce943e088 /* 93 vars */ <unfinished ...>
+18309 <... execve resumed>)             = -1 ENOENT (No such file or directory)
+18309 execve("/usr/local/sdkman/candidates/gradle/current/bin/ls", ["ls"], 0x7ffce943e088 /* 93 vars */ <unfinished ...>
+18310 <... execve resumed>)             = -1 ENOENT (No such file or directory)
+18309 <... execve resumed>)             = -1 ENOENT (No such file or directory)
+18309 execve("/usr/local/sdkman/candidates/maven/current/bin/ls", ["ls"], 0x7ffce943e088 /* 93 vars */ <unfinished ...>
+18310 execve("/usr/local/sdkman/candidates/gradle/current/bin/wc", ["wc", "-l"], 0x7ffce943e088 /* 93 vars */ <unfinished ...>
+18309 <... execve resumed>)             = -1 ENOENT (No such file or directory)
+18309 execve("/usr/local/sdkman/candidates/ant/current/bin/ls", ["ls"], 0x7ffce943e088 /* 93 vars */ <unfinished ...>
+18310 <... execve resumed>)             = -1 ENOENT (No such file or directory)
+18310 execve("/usr/local/sdkman/candidates/maven/current/bin/wc", ["wc", "-l"], 0x7ffce943e088 /* 93 vars */ <unfinished ...>
+18309 <... execve resumed>)             = -1 ENOENT (No such file or directory)
+18309 execve("/usr/local/share/rbenv/shims/ls", ["ls"], 0x7ffce943e088 /* 93 vars */ <unfinished ...>
+18310 <... execve resumed>)             = -1 ENOENT (No such file or directory)
+18309 <... execve resumed>)             = -1 ENOENT (No such file or directory)
+18310 execve("/usr/local/sdkman/candidates/ant/current/bin/wc", ["wc", "-l"], 0x7ffce943e088 /* 93 vars */ <unfinished ...>
+18309 execve("/usr/local/share/rbenv/bin/ls", ["ls"], 0x7ffce943e088 /* 93 vars */ <unfinished ...>
+18310 <... execve resumed>)             = -1 ENOENT (No such file or directory)
+18309 <... execve resumed>)             = -1 ENOENT (No such file or directory)
+18310 execve("/usr/local/share/rbenv/shims/wc", ["wc", "-l"], 0x7ffce943e088 /* 93 vars */ <unfinished ...>
+18309 execve("/usr/local/rubies/current/bin/ls", ["ls"], 0x7ffce943e088 /* 93 vars */ <unfinished ...>
+18310 <... execve resumed>)             = -1 ENOENT (No such file or directory)
+18309 <... execve resumed>)             = -1 ENOENT (No such file or directory)
+18309 execve("/usr/local/php/current/bin/ls", ["ls"], 0x7ffce943e088 /* 93 vars */ <unfinished ...>
+18310 execve("/usr/local/share/rbenv/bin/wc", ["wc", "-l"], 0x7ffce943e088 /* 93 vars */ <unfinished ...>
+18309 <... execve resumed>)             = -1 ENOENT (No such file or directory)
+18310 <... execve resumed>)             = -1 ENOENT (No such file or directory)
+18309 execve("/opt/conda/bin/ls", ["ls"], 0x7ffce943e088 /* 93 vars */ <unfinished ...>
+18310 execve("/usr/local/rubies/current/bin/wc", ["wc", "-l"], 0x7ffce943e088 /* 93 vars */ <unfinished ...>
+18309 <... execve resumed>)             = -1 ENOENT (No such file or directory)
+18310 <... execve resumed>)             = -1 ENOENT (No such file or directory)
+18309 execve("/usr/local/share/nvm/versions/node/v24.21.0/bin/ls", ["ls"], 0x7ffce943e088 /* 93 vars */ <unfinished ...>
+18310 execve("/usr/local/php/current/bin/wc", ["wc", "-l"], 0x7ffce943e088 /* 93 vars */ <unfinished ...>
+18309 <... execve resumed>)             = -1 ENOENT (No such file or directory)
+18309 execve("/usr/local/hugo/bin/ls", ["ls"], 0x7ffce943e088 /* 93 vars */ <unfinished ...>
+18310 <... execve resumed>)             = -1 ENOENT (No such file or directory)
+18310 execve("/opt/conda/bin/wc", ["wc", "-l"], 0x7ffce943e088 /* 93 vars */ <unfinished ...>
+18309 <... execve resumed>)             = -1 ENOENT (No such file or directory)
+18310 <... execve resumed>)             = -1 ENOENT (No such file or directory)
+18309 execve("/usr/local/sbin/ls", ["ls"], 0x7ffce943e088 /* 93 vars */ <unfinished ...>
+18310 execve("/usr/local/share/nvm/versions/node/v24.21.0/bin/wc", ["wc", "-l"], 0x7ffce943e088 /* 93 vars */ <unfinished ...>
+18309 <... execve resumed>)             = -1 ENOENT (No such file or directory)
+18309 execve("/usr/local/bin/ls", ["ls"], 0x7ffce943e088 /* 93 vars */ <unfinished ...>
+18310 <... execve resumed>)             = -1 ENOENT (No such file or directory)
+18310 execve("/usr/local/hugo/bin/wc", ["wc", "-l"], 0x7ffce943e088 /* 93 vars */ <unfinished ...>
+18309 <... execve resumed>)             = -1 ENOENT (No such file or directory)
+18309 execve("/usr/sbin/ls", ["ls"], 0x7ffce943e088 /* 93 vars */ <unfinished ...>
+18310 <... execve resumed>)             = -1 ENOENT (No such file or directory)
+18310 execve("/usr/local/sbin/wc", ["wc", "-l"], 0x7ffce943e088 /* 93 vars */ <unfinished ...>
+18309 <... execve resumed>)             = -1 ENOENT (No such file or directory)
+18309 execve("/usr/bin/ls", ["ls"], 0x7ffce943e088 /* 93 vars */ <unfinished ...>
+18310 <... execve resumed>)             = -1 ENOENT (No such file or directory)
+18310 execve("/usr/local/bin/wc", ["wc", "-l"], 0x7ffce943e088 /* 93 vars */) = -1 ENOENT (No such file or directory)
+18309 <... execve resumed>)             = 0
+18310 execve("/usr/sbin/wc", ["wc", "-l"], 0x7ffce943e088 /* 93 vars */) = -1 ENOENT (No such file or directory)
+18310 execve("/usr/bin/wc", ["wc", "-l"], 0x7ffce943e088 /* 93 vars */) = 0
+18309 openat(AT_FDCWD, "/etc/ld.so.cache", O_RDONLY|O_CLOEXEC) = 3
+18310 openat(AT_FDCWD, "/etc/ld.so.cache", O_RDONLY|O_CLOEXEC) = 3
+18309 close(3)                          = 0
+18309 openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libselinux.so.1", O_RDONLY|O_CLOEXEC <unfinished ...>
+18310 close(3)                          = 0
+18309 <... openat resumed>)             = 3
+18310 openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libc.so.6", O_RDONLY|O_CLOEXEC <unfinished ...>
+18309 read(3,  <unfinished ...>
+18310 <... openat resumed>)             = 3
+18309 <... read resumed>"\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\0\0\0\0\0\0\0\0"..., 832) = 832
+18310 read(3, "\177ELF\2\1\1\3\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\220\243\2\0\0\0\0\0"..., 832) = 832
+18309 close(3)                          = 0
+18309 openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libc.so.6", O_RDONLY|O_CLOEXEC <unfinished ...>
+18310 close(3)                          = 0
+18309 <... openat resumed>)             = 3
+18309 read(3, "\177ELF\2\1\1\3\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\220\243\2\0\0\0\0\0"..., 832) = 832
+18309 close(3)                          = 0
+18309 openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libpcre2-8.so.0", O_RDONLY|O_CLOEXEC) = 3
+18309 read(3, "\177ELF\2\1\1\0\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0\0\0\0\0\0\0\0\0"..., 832) = 832
+18310 read(0,  <unfinished ...>
+18309 close(3)                          = 0
+18309 openat(AT_FDCWD, "/proc/filesystems", O_RDONLY|O_CLOEXEC) = 3
+18309 read(3, "nodev\tsysfs\nnodev\ttmpfs\nnodev\tbd"..., 1024) = 434
+18309 read(3, "", 1024)                 = 0
+18309 close(3)                          = 0
+18309 openat(AT_FDCWD, ".", O_RDONLY|O_NONBLOCK|O_CLOEXEC|O_DIRECTORY) = 3
+18309 close(3)                          = 0
+18309 write(1, "dup2_output\ninput.txt\nls-output."..., 176) = 176
+18310 <... read resumed>"dup2_output\ninput.txt\nls-output."..., 16320) = 176
+18309 close(1 <unfinished ...>
+18310 read(0,  <unfinished ...>
+18309 <... close resumed>)              = 0
+18309 close(2 <unfinished ...>
+18310 <... read resumed>"", 16320)      = 0
+18309 <... close resumed>)              = 0
+18309 exit_group(0 <unfinished ...>
+18310 write(1, "14\n", 3)               = 3
+18309 <... exit_group resumed>)         = ?
+18309 +++ exited with 0 +++
+18310 close(0 <unfinished ...>
+18307 <... wait4 resumed>[{WIFEXITED(s) && WEXITSTATUS(s) == 0}], 0, NULL) = 18309
+18310 <... close resumed>)              = 0
+18307 --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=18309, si_uid=1000, si_status=0, si_utime=0, si_stime=0} ---
+18310 close(1 <unfinished ...>
+18307 wait4(18310,  <unfinished ...>
+18310 <... close resumed>)              = 0
+18310 close(2)                          = 0
+18310 exit_group(0)                     = ?
+18310 +++ exited with 0 +++
+18307 <... wait4 resumed>[{WIFEXITED(s) && WEXITSTATUS(s) == 0}], 0, NULL) = 18310
+18307 --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=18310, si_uid=1000, si_status=0, si_utime=0, si_stime=0} ---
+18307 exit_group(0)                     = ?
+18307 +++ exited with 0 +++

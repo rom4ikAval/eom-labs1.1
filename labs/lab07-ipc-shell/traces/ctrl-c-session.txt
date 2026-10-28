@@ -1,0 +1,5 @@
+myshell> sleep 30
+^CChild signal=2
+myshell> echo still-running
+still-running
+myshell> 

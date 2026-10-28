@@ -1,0 +1,54 @@
+Commands:
+pwd
+ls
+ls -l
+echo Hello Systems
+cd /tmp
+pwd
+cd /tmp/eom-lab07-gv4s_iza
+echo test > test.txt
+cat test.txt
+ls -l | wc -l
+cat input.txt | grep hello
+seq 100000 | wc -l
+yes | head -n 1
+exit
+
+STDOUT:
+/tmp/eom-lab07-gv4s_iza
+dup2_output
+input.txt
+ls-output.txt
+mini_shell
+pipe_basic
+pipe_no_close
+pipe_processes
+pipeline
+redirect_exec
+redirected.txt
+signal_int
+signal_parent_child
+total 192
+-rwxr-xrwx 1 codespace codespace 16320 Oct 28 21:22 dup2_output
+-rw-r--rw- 1 codespace codespace    26 Oct 28 21:22 input.txt
+-rw-r--r-- 1 codespace codespace   728 Oct 28 21:22 ls-output.txt
+-rwxr-xrwx 1 codespace codespace 21568 Oct 28 21:22 mini_shell
+-rwxr-xrwx 1 codespace codespace 16448 Oct 28 21:22 pipe_basic
+-rwxr-xrwx 1 codespace codespace 16904 Oct 28 21:22 pipe_no_close
+-rwxr-xrwx 1 codespace codespace 16720 Oct 28 21:22 pipe_processes
+-rwxr-xrwx 1 codespace codespace 16856 Oct 28 21:22 pipeline
+-rwxr-xrwx 1 codespace codespace 16864 Oct 28 21:22 redirect_exec
+-rw-r--r-- 1 codespace codespace    22 Oct 28 21:22 redirected.txt
+-rwxr-xrwx 1 codespace codespace 16560 Oct 28 21:22 signal_int
+-rwxr-xrwx 1 codespace codespace 17048 Oct 28 21:22 signal_parent_child
+Hello Systems
+/tmp
+test
+14
+hello one
+hello two
+100000
+y
+
+STDERR:
+Child signal=13

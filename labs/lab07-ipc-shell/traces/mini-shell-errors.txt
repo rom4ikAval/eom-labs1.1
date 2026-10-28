@@ -1,0 +1,10 @@
+still-running
+execvp: No such file or directory
+chdir: No such file or directory
+open: No such file or directory
+Syntax error: one pipe and optional final > file
+Syntax error: one pipe and optional final > file
+Syntax error: one pipe and optional final > file
+Syntax error: one pipe and optional final > file
+Usage: cd directory
+Input too long
