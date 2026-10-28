@@ -27,10 +27,10 @@ bash run.sh
 
 Потрібні GCC, Python 3, Bash, strace, objdump, getconf та cmp.
 
-- [Повний журнал запусків](lab06-results.txt).
-- [Карти пам’яті, traces та Assembly](artifacts/).
-- [Команди компіляції](artifacts/build-commands.txt).
-- [Скрипт відтворення](run_experiments.py).
+- Повний журнал запусків.
+- Карти пам’яті, traces та Assembly.
+- Команди компіляції.
+- Скрипт відтворення.
 
 Виконувані та тестові файли створюються в тимчасовому каталозі поза
 репозиторієм. Після експериментів цей каталог видаляється.
@@ -117,8 +117,8 @@ global — writable mapping того самого виконуваного фа�
 Дані не потребують дозволу виконання для читання та зміни.
 Обмеження прав зменшує можливості випадкового або небажаного доступу.
 
-Повна карта: [memory-maps.txt](artifacts/memory-maps.txt).  
-Адреси того самого процесу: [memory-maps-addresses.txt](artifacts/memory-maps-addresses.txt).
+Повна карта: memory-maps.txt.  
+Адреси того самого процесу: memory-maps-addresses.txt.
 
 ## 6. Page size, page number та offset
 
@@ -173,10 +173,10 @@ allocator може використовувати окремі anonymous mapping
 
 Збережено повні status і maps до та після touching:
 
-- [heap-before-status.txt](artifacts/heap-before-status.txt);
-- [heap-after-status.txt](artifacts/heap-after-status.txt);
-- [heap-before-maps.txt](artifacts/heap-before-maps.txt);
-- [heap-after-maps.txt](artifacts/heap-after-maps.txt).
+- heap-before-status.txt;
+- heap-after-status.txt;
+- heap-before-maps.txt;
+- heap-after-maps.txt.
 
 ## 8. Invalid memory access
 
@@ -214,7 +214,7 @@ SIGSEGV є фактично спостереженим результатом ц
 саме по собі не доводить наявності файла core в каталозі роботи.
 Core dumps не додаються до репозиторію.
 
-Повний trace: [invalid-memory.strace](artifacts/invalid-memory.strace).
+Повний trace: invalid-memory.strace.
 
 ## 9. Standard file descriptors
 
@@ -242,7 +242,7 @@ File descriptor — невід’ємне ціле число, індекс у �
 відкритих дескрипторів процесу. Він може представляти не лише
 звичайний файл, а й pipe, terminal, socket та інші I/O resources.
 
-Доказ: [fd_observer-fds.txt](artifacts/fd_observer-fds.txt).
+Доказ: fd_observer-fds.txt.
 
 ## 10. Відкриття файла: pathname та descriptor
 
@@ -269,7 +269,7 @@ Descriptors 0, 1, 2 вже були зайняті; open повернув най
 Права при створенні задано як 0644, але фактичні права також залежать
 від umask та можливих правил файлової системи.
 
-Доказ: [open_file-fds.txt](artifacts/open_file-fds.txt).
+Доказ: open_file-fds.txt.
 
 ## 11. write() та read()
 
@@ -357,7 +357,7 @@ close(3)                              = 0
 Попередні openat/read для cache завантажувача та libc належать
 ініціалізації процесу, а не читанню input.txt.
 
-Повний відфільтрований trace: [read-file.strace](artifacts/read-file.strace).
+Повний відфільтрований trace: read-file.strace.
 
 ## 14. stdout, stderr та redirection
 
@@ -418,12 +418,12 @@ fflush не означає примусове збереження даних н
 
 Traces:
 
-- [buffering.strace](artifacts/buffering.strace);
-- [buffering_flush.strace](artifacts/buffering_flush.strace).
+- buffering.strace;
+- buffering_flush.strace.
 
 ## 16. Реалізація file_copy
 
-[file_copy.c](file_copy.c) використовує open, read, write та close.
+file_copy.c використовує open, read, write та close.
 Для самого копіювання не використовуються fopen/fread/fwrite або cp.
 
 Основний цикл:
@@ -525,7 +525,7 @@ close(3) = 0
 
 Після trace повторна перевірка cmp також завершилася з exit=0.
 
-Повний відфільтрований trace: [file-copy.strace](artifacts/file-copy.strace).
+Повний відфільтрований trace: file-copy.strace.
 
 ## 19. Повний data path
 
